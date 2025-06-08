@@ -3,7 +3,7 @@ import { useState, useEffect, ReactNode, useCallback, JSX } from 'react';
 import { Feather, Instagram, Linkedin } from 'react-feather';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { DockIcon, Github, Mail, StickyNote, X } from 'lucide-react';
+import { Github, StickyNote, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,12 +126,12 @@ const Hero = () => {
     {
       icon: <X className="" size={20} />,
       text: 'Twitter',
-      link: 'https://twitter.com/siddheshNimbalk1',
+      link: 'https://x.com/Siddhesh_Dev_',
     },
     {
       icon: <Instagram className="" size={20} />,
       text: 'Instagram',
-      link: 'https://www.instagram.com/siddhesh_nimbalkar_/',
+      link: 'https://www.instagram.com/nimbalkar_siddhesh_/',
     },
     {
       icon: <StickyNote className="" size={20} />,
