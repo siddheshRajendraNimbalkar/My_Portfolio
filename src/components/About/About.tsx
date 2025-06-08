@@ -40,19 +40,7 @@ const About = () => {
           
         </div>
 
-        {/* Mid Circles */}
-        <div className="absolute inset-x-0 mx-auto top-1/2 transform -translate-y-1/2 w-16 z-10">
-          <div className="space-y-6">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="w-16 h-16 rounded-full border border-[#ECE7E1] flex items-center justify-center">
-                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                  <path d="M12 4V20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" />
-                  <path d="M4 12H20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              </div>
-            ))}
-          </div>
-        </div>
+        
       </div>
 
       {/* Right Content Area */}
