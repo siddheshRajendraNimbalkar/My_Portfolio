@@ -1,3 +1,4 @@
+
 'use client'
 
 import React, { useEffect } from 'react'
@@ -55,7 +56,7 @@ const About = () => {
           alt="Background Flower"
           width={500}
           height={500}
-          className="absolute top-5 right-4 w-40 h-40 sm:w-64 sm:h-64 object-cover z-0"
+          className="hidden absolute md:block top-5 right-4 w-40 h-40 sm:w-64 sm:h-64 object-cover z-0"
         />
 
         <h2 className="text-4xl sm:text-5xl font-bold text-[#ECE7E1] mb-6 about-heading relative z-10">
