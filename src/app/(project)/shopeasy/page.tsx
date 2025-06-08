@@ -6,7 +6,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
 import OnlyBtn from '@/components/Button/Button';
 import { Github, MoveRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const frontend = ["AI", "Next JS", "Tailwind Css", "GSAP", "Framer Motio", "Redis", "Type Script", "Shad CN", "React", "Zod", "Axios"];
 const backend = ["GoLang", "GRPC", "Gin", "Postgres", "SQLC", "Paseto", "Redis"];

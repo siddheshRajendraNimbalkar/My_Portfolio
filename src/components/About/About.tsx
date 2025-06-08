@@ -124,27 +124,22 @@ const About = () => {
           <li>
             <span className="font-semibold text-white">Kavita Metal</span> – June 2025 – Present<br />
             <span className="italic text-sm">Freelance Developer</span><br />
-            
+
           </li>
           <br />
           <li>
             <span className="font-semibold text-white">MOCOTHRIFT</span> – Mar 2024 – May 2024<br />
             <span className="italic text-sm">Freelance Backend + Fullstack Developer</span><br />
-            
+
           </li>
           <br />
           <li>
             <span className="font-semibold text-white">Portfolio Website</span> – Dec 2022<br />
             <span className="italic text-sm">Freelance</span><br />
-            
+
           </li>
         </ul>
-
-
-
       </div>
-
-
     </div>
   );
 };
