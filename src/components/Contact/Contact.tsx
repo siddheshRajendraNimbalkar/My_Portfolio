@@ -44,7 +44,7 @@ const ContactPage = () => {
             whileTap={{ scale: 0.95 }}
             className="bg-[#f5f5dc] text-[#001f1f] py-3 px-8 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-shadow mb-16 focus:outline-none"
           >
-            <a href="/My_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+            <a href="/Nimbalkar.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
             Resume
             </a>
           </motion.button>

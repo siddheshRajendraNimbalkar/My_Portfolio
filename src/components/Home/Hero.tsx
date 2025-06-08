@@ -136,7 +136,7 @@ const Hero = () => {
     {
       icon: <StickyNote className="" size={20} />,
       text: 'Resume',
-      link: '/My_Resume.pdf',
+      link: '/Nimbalkar.pdf',
     }
   ]
 
