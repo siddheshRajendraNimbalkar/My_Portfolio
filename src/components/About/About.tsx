@@ -28,24 +28,24 @@ const About = () => {
           <div className="flex flex-col items-center space-y-4">
             {/* Up Arrows */}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 4L6 10H18L12 4Z" fill="#ECE7E1"/>
+              <path d="M12 4L6 10H18L12 4Z" fill="#ECE7E1" />
             </svg>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 4L6 10H18L12 4Z" fill="#ECE7E1"/>
+              <path d="M12 4L6 10H18L12 4Z" fill="#ECE7E1" />
             </svg>
           </div>
           {/* Line with arrow */}
           <div className="flex flex-col items-center">
             <div className="w-px h-[70vh] "></div> {/* Vertical line */}
-            
+
           </div>
           <div className="flex flex-col items-center space-y-4">
             {/* Down Arrows */}
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 20L18 14H6L12 20Z" fill="#ECE7E1"/>
+              <path d="M12 20L18 14H6L12 20Z" fill="#ECE7E1" />
             </svg>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 20L18 14H6L12 20Z" fill="#ECE7E1"/>
+              <path d="M12 20L18 14H6L12 20Z" fill="#ECE7E1" />
             </svg>
           </div>
         </div>
@@ -54,14 +54,14 @@ const About = () => {
           <div className="flex flex-col space-y-6">
             <div className="w-16 h-16 rounded-full border border-[#ECE7E1] flex items-center justify-center">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4V20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M4 12H20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 4V20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M4 12H20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <div className="w-16 h-16 rounded-full border border-[#ECE7E1] flex items-center justify-center">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4V20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M4 12H20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 4V20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M4 12H20" stroke="#ECE7E1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </div>
@@ -88,48 +88,63 @@ const About = () => {
           🔧 Tech I Work With
         </h3>
         <ul className="text-lg leading-relaxed text-[#ECE7E1] max-w-xl list-disc list-inside mb-4 relative z-10 tech-stack-list" style={{ fontFamily: 'Inter, sans-serif' }}>
-          
-            <span className="font-bold">Languages:</span>
-            {['Go', 'JavaScript', 'TypeScript', 'Python', 'C', 'Java'].map((item, index) => (
-              <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
-            ))}
-          <br />
-          <span className="font-bold">Frameworks:</span>
-            {["Node.js", "Express.js", "Hono.js", "React.js", "Next.js"].map((item, index) => (
-              <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
-            ))}
-            <br />
-          <span className="font-bold">Databases:</span> 
-            {["MongoDB", "PostgreSQL", "MySQL", "Redis"].map((item, index) => (
-              <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
-          ))}
-          
-          <br />
-          <span className="font-bold">Tools:</span>
-          {["AWS","Docker", "Kubernetes", "gRPC", "GraphQL","Prisma", "SQLC"].map((item, index) => (
+
+          <span className="font-bold">Languages:</span>
+          {['Go', 'JavaScript', 'TypeScript', 'Python', 'C', 'Java'].map((item, index) => (
             <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
           ))}
           <br />
-         <span className="font-bold">Other:</span> 
-         {["WebSockets", "JWT", "CI/CD", "Tailwind", "Git", "GitHub","Linux"].map((item, index) => (
+          <span className="font-bold">Frameworks:</span>
+          {["Node.js", "Express.js", "Hono.js", "React.js", "Next.js"].map((item, index) => (
+            <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
+          ))}
+          <br />
+          <span className="font-bold">Databases:</span>
+          {["MongoDB", "PostgreSQL", "MySQL", "Redis"].map((item, index) => (
+            <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
+          ))}
+
+          <br />
+          <span className="font-bold">Tools:</span>
+          {["AWS", "Docker", "Kubernetes", "gRPC", "GraphQL", "Prisma", "SQLC"].map((item, index) => (
+            <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
+          ))}
+          <br />
+          <span className="font-bold">Other:</span>
+          {["WebSockets", "JWT", "CI/CD", "Tailwind", "Git", "GitHub", "Linux"].map((item, index) => (
             <span key={index} className="px-4 bg-[#ECE7E1] text-[#131313] ml-1">{item}</span>
           ))}
         </ul>
 
         <h3 className="text-4xl font-bold text-[#F49533] mb-4 relative z-10 current-focus-heading" style={{ fontFamily: 'Inter, sans-serif' }}>
-          🚀 I'm currently focused on:
+          🚀 WORK
         </h3>
+
         <ul className="text-lg leading-relaxed text-[#ECE7E1] max-w-xl list-disc list-inside mb-4 relative z-10 current-focus-list" style={{ fontFamily: 'Inter, sans-serif' }}>
-          <li>Building scalable, real-time platforms</li>
-          <li>Exploring cloud-native development</li>
-          <li>Strengthening my knowledge in Web3 and system design</li>
+          <li>
+            <span className="font-semibold text-white">Kavita Metal</span> – June 2025 – Present<br />
+            <span className="italic text-sm">Freelance Developer</span><br />
+            
+          </li>
+          <br />
+          <li>
+            <span className="font-semibold text-white">MOCOTHRIFT</span> – Mar 2024 – May 2024<br />
+            <span className="italic text-sm">Freelance Backend + Fullstack Developer</span><br />
+            
+          </li>
+          <br />
+          <li>
+            <span className="font-semibold text-white">Portfolio Website</span> – Dec 2022<br />
+            <span className="italic text-sm">Freelance</span><br />
+            
+          </li>
         </ul>
-        <p className="text-lg leading-relaxed text-[#ECE7E1] max-w-xl relative z-10 about-paragraph-3" style={{ fontFamily: 'Inter, sans-serif' }}>
-          When I'm not coding, I enjoy learning about system architecture, contributing to open-source, and building side projects that push my limits.
-        </p>
+
+
+
       </div>
 
-      
+
     </div>
   );
 };
