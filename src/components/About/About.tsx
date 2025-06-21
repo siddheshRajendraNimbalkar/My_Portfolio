@@ -73,8 +73,24 @@ const About = () => {
 
         <h3 className="text-3xl sm:text-4xl font-bold text-[#F49533] mb-4 tech-stack-heading relative z-10">🔧 Tech I Work With</h3>
 
-        <div className="space-y-2 text-[#ECE7E1] text-sm sm:text-base tech-stack-list relative z-10">
-          <p><span className="font-bold">Languages:</span> <span className="flex flex-wrap gap-2 mt-1">{['Go', 'JavaScript', 'TypeScript', 'Python', 'C', 'Java'].map((lang) => (
+        <div className="bg-[#1a1a1a] p-4 rounded-lg border-l-4 border-[#FF5C00] text-[#ECE7E1] shadow-md space-y-3">
+          <p>
+            <span className="font-semibold text-[#FF5C00] text-2xl sm:text-xl mt-10 mb-4">
+              Specialized
+            </span>{" "}
+            <div className="space-y-2 text-[#ECE7E1] text-sm sm:text-base tech-stack-list relative z-10">
+              <div className="flex flex-wrap gap-2 mt-1">
+                <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">GoLang</span>
+                <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">Next JS</span>
+                <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">MERN Stack</span>
+              </div>
+            </div>
+          </p>
+          
+        </div>
+
+        <div className="space-y-2 text-[#ECE7E1] text-sm sm:text-base tech-stack-list relative z-10 mt-2">
+          <p><span className="font-bold">Languages:</span> <span className="flex flex-wrap gap-2 mt-1">{['GoLang', 'JavaScript', 'TypeScript', 'Python', 'C', 'Java'].map((lang) => (
             <span key={lang} className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">{lang}</span>
           ))}</span></p>
 
