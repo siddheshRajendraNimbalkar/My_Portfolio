@@ -179,7 +179,7 @@ const ContactPage = () => {
               transition={{ duration: 0.6 }}
             />
             <a 
-              href="/Resume.pdf" 
+              href="/My_Resume.pdf" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="flex items-center gap-3 relative z-10"
