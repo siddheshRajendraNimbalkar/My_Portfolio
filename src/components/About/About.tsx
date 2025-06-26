@@ -63,10 +63,6 @@ const About = () => {
           Hi! I'm Siddhesh Nimbalkar, a passionate Full-Stack Developer from India with a strong focus on backend engineering and real-time systems.
         </p>
 
-        <p className="text-md sm:text-lg text-red-600 max-w-xl about-paragraph-2 relative z-10 mb-8">
-          I specialize in Golang, Node.js, and the MERN stack, and I love building powerful APIs, distributed systems, and intuitive UIs.
-        </p>
-
         <h3 className="text-3xl sm:text-4xl font-bold text-[#F49533] mb-4 tech-stack-heading relative z-10">
           🔧 Tech I Work With
         </h3>
@@ -75,16 +71,14 @@ const About = () => {
         <div className="bg-[#1a1a1a] p-4 rounded-lg border-l-4 border-[#FF5C00] text-[#ECE7E1] shadow-md space-y-3 mb-6">
           <p>
             <span className="font-semibold text-[#FF5C00] text-2xl sm:text-xl">
-              Specialized
+              I specialize in 
+               <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded mx-1">GoLang</span>
+                <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded mx-1">Next JS</span>
+               <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded mx-1">MERN Stack</span>
+                 and I love building powerful APIs, distributed systems, and intuitive UIs.
             </span>
           </p>
-          <div className="space-y-2 text-[#ECE7E1] text-sm sm:text-base tech-stack-list relative z-10">
-            <div className="flex flex-wrap gap-2 mt-1">
-              <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">GoLang</span>
-              <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">Next JS</span>
-              <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded">MERN Stack</span>
-            </div>
-          </div>
+          
         </div>
 
         <div className="space-y-2 text-[#ECE7E1] text-sm sm:text-base tech-stack-list relative z-10">
