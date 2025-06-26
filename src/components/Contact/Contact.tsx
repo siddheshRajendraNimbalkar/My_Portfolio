@@ -1,263 +1,204 @@
 'use client'
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Download, Sparkles, ArrowRight } from "lucide-react";
 
 const ContactPage = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e:any) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
-
   const socialLinks = [
     {
       href: "https://github.com/siddheshRajendraNimbalkar",
       icon: Github,
-      label: "GitHub",
-      color: "#333"
+      label: "GitHub"
     },
     {
       href: "https://www.linkedin.com/in/siddhesh-nimbalkar-43728229b/",
       icon: Linkedin,
-      label: "LinkedIn",
-      color: "#0077b5"
+      label: "LinkedIn"
     },
     {
       href: "https://x.com/Siddhesh_Dev_",
       icon: Twitter,
-      label: "Twitter",
-      color: "#1da1f2"
+      label: "Twitter"
     }
   ];
+
+  // Star colors array
+  const starColors = [
+    '#FFD700', // Gold
+    '#FF6B9D', // Pink
+    '#00D4FF', // Cyan
+    '#FF4757', // Red
+    '#7B68EE', // Medium Slate Blue
+    '#32CD32', // Lime Green
+    '#FF8C00', // Dark Orange
+    '#9370DB', // Medium Purple
+    '#00CED1', // Dark Turquoise
+    '#FF69B4', // Hot Pink
+    '#ADFF2F', // Green Yellow
+    '#FF1493'  // Deep Pink
+  ];
+
+  // Generate random star positions and sizes with colors
+  const stars = Array.from({ length: 50 }).map((_, i) => ({
+    id: i,
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    size: `${Math.random() * 3 + 1}px`,
+    color: starColors[Math.floor(Math.random() * starColors.length)],
+    delay: Math.random() * 2,
+    duration: Math.random() * 3 + 2
+  }));
+
+  // Generate some larger twinkling stars with colors
+  const bigStars = Array.from({ length: 10 }).map((_, i) => ({
+    id: i + 50,
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    size: `${Math.random() * 6 + 4}px`,
+    color: starColors[Math.floor(Math.random() * starColors.length)],
+    delay: Math.random() * 2,
+    duration: Math.random() * 4 + 3
+  }));
 
   return (
     <div 
       id="contact-section" 
-      className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex flex-col items-center justify-center relative overflow-hidden px-4"
+      className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 relative overflow-hidden"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating Orbs */}
+      {/* Background stars */}
+      {stars.map((star) => (
         <motion.div
-          className="absolute w-96 h-96 bg-gradient-to-r from-white/10 to-gray-500/20 rounded-full blur-3xl"
-          animate={{
-            x: [0, 100, 0],
-            y: [0, -100, 0],
-            scale: [1, 1.2, 1]
+          key={`small-star-${star.id}`}
+          className="absolute rounded-full"
+          style={{
+            top: star.top,
+            left: star.left,
+            width: star.size,
+            height: star.size,
+            backgroundColor: star.color,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{
+            delay: star.delay,
+            duration: star.duration,
+            repeat: Infinity,
+            repeatType: "reverse"
+          }}
+        />
+      ))}
+      
+      {bigStars.map((star) => (
+        <motion.div
+          key={`big-star-${star.id}`}
+          className="absolute rounded-full"
+          style={{
+            top: star.top,
+            left: star.left,
+            width: star.size,
+            height: star.size,
+            backgroundColor: star.color,
+            boxShadow: `0 0 12px 3px ${star.color}40`
+          }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ 
+            opacity: [0, 1, 0.5, 1, 0], 
+            scale: [0.5, 1, 0.8, 1.2, 1] 
           }}
           transition={{
-            duration: 20,
+            delay: star.delay,
+            duration: star.duration,
             repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{
-            left: '10%',
-            top: '20%'
+            repeatType: "reverse"
           }}
         />
-        <motion.div
-          className="absolute w-64 h-64 bg-gradient-to-r from-gray-600/20 to-white/10 rounded-full blur-3xl"
-          animate={{
-            x: [0, -150, 0],
-            y: [0, 100, 0],
-            scale: [1, 0.8, 1]
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-          style={{
-            right: '15%',
-            bottom: '25%'
-          }}
-        />
-        
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, #ffffff 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }}
-        />
-      </div>
+      ))}
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="text-center z-10 relative max-w-4xl mx-auto"
-      >
-        {/* Floating Badge */}
+      <div className="text-center max-w-2xl mx-auto relative z-10">
+        {/* Badge */}
         <motion.div
-          variants={itemVariants}
-          className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 bg-gray-900 border border-gray-800 rounded-full px-4 py-2 mb-8"
         >
           <Sparkles className="w-4 h-4 text-white" />
           <span className="text-sm font-medium">Available for new projects</span>
         </motion.div>
 
-        {/* Main Heading */}
-        <motion.div variants={itemVariants}>
-          <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-white via-gray-300 to-gray-500 bg-clip-text text-transparent">
-              Transform Your Vision
-            </span>
-            <motion.div 
-              className="text-4xl md:text-6xl mt-2 relative"
-              animate={{ 
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <span className="bg-gradient-to-r from-gray-400 via-white to-gray-600 bg-clip-text text-transparent bg-300% animate-gradient">
-                Into Digital Reality
-              </span>
-            </motion.div>
-          </h1>
-        </motion.div>
+        {/* Heading */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-4xl md:text-6xl font-bold mb-6"
+        >
+          Transform Your Vision
+          <span className="block mt-4">Into Digital Reality</span>
+        </motion.h1>
 
         {/* Subtitle */}
         <motion.p
-          variants={itemVariants}
-          className="text-xl md:text-2xl mb-12 text-white/70 font-light leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-lg md:text-xl mb-12 text-gray-400"
         >
           Creating stunning websites that capture your unique story
           <br />
-          <span className="text-white">with cutting-edge technology</span>
+          with cutting-edge technology
         </motion.p>
 
         {/* CTA Button */}
-        <motion.div variants={itemVariants} className="mb-16">
-          <motion.button
-            className="group relative bg-gradient-to-r from-[#a8e6cf] to-[#64b3f4] text-black py-4 px-8 rounded-2xl font-bold text-lg shadow-2xl overflow-hidden"
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: '0 20px 40px rgba(168, 230, 207, 0.3)'
-            }}
-            whileTap={{ scale: 0.95 }}
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-16"
+        >
+          <a 
+            href="/My_Resume.pdf" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="group inline-flex items-center gap-3 bg-white text-black py-3 px-6 rounded-lg font-bold text-lg transition hover:bg-gray-200"
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-              initial={{ x: '-100%' }}
-              animate={{ x: isHovered ? '100%' : '-100%' }}
-              transition={{ duration: 0.6 }}
-            />
-            <a 
-              href="/My_Resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-3 relative z-10"
-            >
-              <Download className="w-5 h-5" />
-              Download Resume
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </motion.button>
+            <Download className="w-5 h-5" />
+            Download Resume
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
         </motion.div>
 
         {/* Social Links */}
         <motion.div
-          variants={itemVariants}
-          className="flex gap-6 justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="flex gap-4 justify-center mb-12"
         >
-          {socialLinks.map((social, index) => (
-            <motion.a
+          {socialLinks.map((social) => (
+            <a
               key={social.label}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-white/30 transition-all duration-300"
-              whileHover={{ 
-                scale: 1.1,
-                boxShadow: '0 10px 30px rgba(255,255,255,0.1)'
-              }}
-              whileTap={{ scale: 0.9 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1 + index * 0.1 }}
+              className="p-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition-colors"
+              title={social.label}
             >
-              <social.icon 
-                size={28} 
-                className="text-white group-hover:text-[#a8e6cf] transition-colors relative z-10" 
-              />
-              
-              {/* Tooltip */}
-              <motion.div
-                className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-                initial={{ y: 5 }}
-                whileHover={{ y: 0 }}
-              >
-                {social.label}
-              </motion.div>
-              
-              {/* Glow Effect */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[#a8e6cf]/20 to-[#64b3f4]/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity -z-10"
-                layoutId={`glow-${index}`}
-              />
-            </motion.a>
+              <social.icon size={24} className="text-white" />
+            </a>
           ))}
         </motion.div>
 
-        {/* Bottom Text */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-12 text-white/50 font-light"
+        {/* Footer Text */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="text-gray-500"
         >
-          <p>Let's build something extraordinary together</p>
-        </motion.div>
-      </motion.div>
-
-      {/* Custom Styles */}
-      <style jsx>{`
-        @keyframes gradient {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient {
-          background-size: 300% 300%;
-          animation: gradient 3s ease infinite;
-        }
-        .bg-300\\% {
-          background-size: 300% 300%;
-        }
-      `}</style>
+          Let's build something extraordinary together
+        </motion.p>
+      </div>
     </div>
   );
 };

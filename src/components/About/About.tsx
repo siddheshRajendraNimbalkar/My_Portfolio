@@ -60,8 +60,8 @@ const About = () => {
         </h2>
 
         <p className="text-lg sm:text-2xl text-[#ECE7E1] max-w-xl about-paragraph-1 relative z-10 mb-4">
-          Hi! I'm Siddhesh Nimbalkar, a Full-Stack Developer from
-          <span className='bg-indigo-600 rounded-sm pr-1'>📍Pune India</span> 
+          Hi! I'm Nimbalkar Siddhesh, a Full-Stack Developer from
+          <span className='bg-indigo-600 rounded-sm pr-1 uppercase'>📍Pune Maharashtra India</span> 
           with a strong focus on backend engineering and real-time systems.
         </p>
 
@@ -70,17 +70,26 @@ const About = () => {
         </h3>
 
         {/* Specialized Section */}
-        <div className="bg-[#1a1a1a] p-4 rounded-lg border-l-4 border-[#FF5C00] text-[#ECE7E1] shadow-md space-y-3 mb-6">
-          <p>
-            <span className="font-semibold text-[#FF5C00] text-2xl sm:text-xl">
-              I specialize in 
-               <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded mx-1">GoLang</span>
-                <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded mx-1 truncate">Next JS</span>
-                <div className='flex md:hidden'><br /></div>
-               <span className="bg-[#ECE7E1] text-[#131313] px-2 py-1 rounded mx-1 truncate">MERN Stack</span>
-                 and I love building powerful APIs, distributed systems, and intuitive UIs.
-            </span>
-          </p>
+        <div className="bg-[#272626] p-4 rounded-lg border-l-4 border-[#FF5C00] text-[#ECE7E1] shadow-md space-y-3 mb-6">
+           <p className="text-lg leading-relaxed">
+    <span className="font-semibold text-[#FF5C00] text-2xl sm:text-xl block">
+      I specialize in
+    </span>
+    <span className="flex flex-wrap items-center gap-2 mt-3">
+      <span className="bg-[#ECE7E1] text-[#131313] px-3 py-1 rounded-lg text-sm font-medium">
+        GoLang
+      </span>
+      <span className="bg-[#ECE7E1] text-[#131313] px-3 py-1 rounded-lg text-sm font-medium">
+        Next JS
+      </span>
+      <span className="bg-[#ECE7E1] text-[#131313] px-3 py-1 rounded-lg text-sm font-medium">
+        MERN Stack
+      </span>
+    </span>
+    <span className="block mt-4">
+      and I love building powerful APIs, distributed systems, and intuitive UIs.
+    </span>
+  </p>
           
         </div>
 
