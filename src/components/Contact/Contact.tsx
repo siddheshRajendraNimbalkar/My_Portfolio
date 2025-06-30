@@ -1,11 +1,13 @@
 'use client'
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Download, Sparkles, ArrowRight, Mail, Copy, Check } from "lucide-react";
+import { Github, Linkedin, Twitter, Download, Sparkles, ArrowRight, Mail, Copy, Check, Phone } from "lucide-react";
 
 const ContactPage = () => {
   const [emailCopied, setEmailCopied] = useState(false);
-  const email = "nimbalkarsiddhesh29@gmail.com"; // Replace with your actual email
+  const [phoneCopied, setPhoneCopied] = useState(false);
+  const email = "nimbalkarsiddhesh29@gmail.com"; 
+  const number = "+91 93226 16432"; 
 
   const socialLinks = [
     {
@@ -35,23 +37,22 @@ const ContactPage = () => {
     }
   };
 
-  // Star colors array
+  const handlePhoneCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(number);
+      setPhoneCopied(true);
+      setTimeout(() => setPhoneCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy phone:', err);
+    }
+  };
+
   const starColors = [
-    '#FFD700', // Gold
-    '#FF6B9D', // Pink
-    '#00D4FF', // Cyan
-    '#FF4757', // Red
-    '#7B68EE', // Medium Slate Blue
-    '#32CD32', // Lime Green
-    '#FF8C00', // Dark Orange
-    '#9370DB', // Medium Purple
-    '#00CED1', // Dark Turquoise
-    '#FF69B4', // Hot Pink
-    '#ADFF2F', // Green Yellow
-    '#FF1493'  // Deep Pink
+    '#FFD700', '#FF6B9D', '#00D4FF', '#FF4757', '#7B68EE',
+    '#32CD32', '#FF8C00', '#9370DB', '#00CED1', '#FF69B4',
+    '#ADFF2F', '#FF1493'
   ];
 
-  // Generate random star positions and sizes with colors
   const stars = Array.from({ length: 50 }).map((_, i) => ({
     id: i,
     top: `${Math.random() * 100}%`,
@@ -62,7 +63,6 @@ const ContactPage = () => {
     duration: Math.random() * 3 + 2
   }));
 
-  // Generate some larger twinkling stars with colors
   const bigStars = Array.from({ length: 10 }).map((_, i) => ({
     id: i + 50,
     top: `${Math.random() * 100}%`,
@@ -162,12 +162,12 @@ const ContactPage = () => {
           with cutting-edge technology
         </motion.p>
 
-        {/* Email Copy Section */}
+        {/* Email */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
-          className="mb-8"
+          className="mb-6"
         >
           <div className="inline-flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 hover:bg-gray-800 transition-colors">
             <Mail className="w-5 h-5 text-gray-400" />
@@ -178,11 +178,7 @@ const ContactPage = () => {
               title="Copy email"
             >
               {emailCopied ? (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="flex items-center gap-1"
-                >
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-1">
                   <Check className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-green-400">Copied!</span>
                 </motion.div>
@@ -193,7 +189,34 @@ const ContactPage = () => {
           </div>
         </motion.div>
 
-        {/* CTA Button */}
+        {/* Phone */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mb-8"
+        >
+          <div className="inline-flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 hover:bg-gray-800 transition-colors">
+            <Phone className="w-5 h-5 text-gray-400" />
+            <span className="text-gray-300 font-mono text-sm md:text-base">{number}</span>
+            <button
+              onClick={handlePhoneCopy}
+              className="p-1 hover:bg-gray-700 rounded transition-colors"
+              title="Copy phone"
+            >
+              {phoneCopied ? (
+                <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="flex items-center gap-1">
+                  <Check className="w-4 h-4 text-green-400" />
+                  <span className="text-xs text-green-400">Copied!</span>
+                </motion.div>
+              ) : (
+                <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+              )}
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Download Resume */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
