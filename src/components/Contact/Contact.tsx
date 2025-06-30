@@ -1,9 +1,12 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Download, Sparkles, ArrowRight } from "lucide-react";
+import { Github, Linkedin, Twitter, Download, Sparkles, ArrowRight, Mail, Copy, Check } from "lucide-react";
 
 const ContactPage = () => {
+  const [emailCopied, setEmailCopied] = useState(false);
+  const email = "nimbalkarsiddhesh29@gmail.com"; // Replace with your actual email
+
   const socialLinks = [
     {
       href: "https://github.com/siddheshRajendraNimbalkar",
@@ -21,6 +24,16 @@ const ContactPage = () => {
       label: "Twitter"
     }
   ];
+
+  const handleEmailCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
 
   // Star colors array
   const starColors = [
@@ -148,6 +161,37 @@ const ContactPage = () => {
           <br />
           with cutting-edge technology
         </motion.p>
+
+        {/* Email Copy Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="mb-8"
+        >
+          <div className="inline-flex items-center gap-3 bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 hover:bg-gray-800 transition-colors">
+            <Mail className="w-5 h-5 text-gray-400" />
+            <span className="text-gray-300 font-mono text-sm md:text-base">{email}</span>
+            <button
+              onClick={handleEmailCopy}
+              className="p-1 hover:bg-gray-700 rounded transition-colors"
+              title="Copy email"
+            >
+              {emailCopied ? (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="flex items-center gap-1"
+                >
+                  <Check className="w-4 h-4 text-green-400" />
+                  <span className="text-xs text-green-400">Copied!</span>
+                </motion.div>
+              ) : (
+                <Copy className="w-4 h-4 text-gray-400 hover:text-white" />
+              )}
+            </button>
+          </div>
+        </motion.div>
 
         {/* CTA Button */}
         <motion.div 
