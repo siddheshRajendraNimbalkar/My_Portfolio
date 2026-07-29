@@ -136,7 +136,7 @@ const Hero = () => {
     {
       icon: <StickyNote className="" size={20} />,
       text: 'Resume',
-      link: '/nimbalkar_siddhesh_fullstak.pdf',
+      link: 'https://drive.google.com/file/d/1cBjp3Py5tv-Qh940LEYbfeGv-MhIO_K_/view?usp=sharing',
     }
   ]
 

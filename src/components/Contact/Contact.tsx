@@ -224,7 +224,7 @@ const ContactPage = () => {
           className="mb-16"
         >
           <a 
-            href="/nimbalkar_siddhesh_fullstak.pdf" 
+            href="https://drive.google.com/file/d/1cBjp3Py5tv-Qh940LEYbfeGv-MhIO_K_/view?usp=sharing"
             target="_blank" 
             rel="noopener noreferrer" 
             className="group inline-flex items-center gap-3 bg-white text-black py-3 px-6 rounded-lg font-bold text-lg transition hover:bg-gray-200"
